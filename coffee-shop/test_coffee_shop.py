@@ -23,7 +23,7 @@ def test_customer_orders_and_coffees():
     # Initially no orders
 
     assert customer1.orders() == []
-    assert customer1.coffess() == []
+    assert customer1.coffees() == []
 
     # create orders
     customer1.create_order(coffee1, 4.5)
@@ -31,7 +31,7 @@ def test_customer_orders_and_coffees():
 
     #Verify the orders and coffess
     assert len(customer1.orders()) == 2
-    assert set(customer1.coffees) == {coffee1, coffee2}
+    assert set(customer1.coffees()) == {coffee1, coffee2}
 
 # Testing Coffee Class
 def test_coffee_name_validation():

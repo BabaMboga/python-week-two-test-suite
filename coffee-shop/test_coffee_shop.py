@@ -42,3 +42,22 @@ def test_coffee_name_validation():
     # Name length validation (at least 3 characters)
     with pytest.raises(ValueError):
         Coffee("A")
+
+def test_coffee_orders_customers():
+    coffee1 = Coffee("Cappucino")
+    customer1 = Customer("Dave")
+    customer2 = Customer("Eve")
+
+    #Initially no orders
+
+    assert coffee1.orders() == []
+    assert coffee1.customers() == []
+
+    # Create orders
+    customer1.create_order(coffee1, 6.0)
+    customer2.create_order(coffee1, 5.5)
+
+    # Verify orders and customers
+    assert len(coffee1.orders()) == 2
+    assert set(coffee1.customers()) == {customer1, customer2}
+
